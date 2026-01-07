@@ -25,7 +25,7 @@
                 height="1"
                 class="foreign-wrapper">
                 <div class="legend">
-                    <span class="legend-label">{{ nameOf(criteria) }}</span>
+                    <span class="legend-label" :style="`color: ${rgbColor(maxValue / 2)}`">{{ nameOf(criteria) }}</span>
                     <span
                         v-for="limit in limits"
                         :key="limit.value"
@@ -985,7 +985,7 @@
     }
 
     .legend-label {
-        color: white;
+        /* color: lightblue; */
         margin: 5px;
     }
 

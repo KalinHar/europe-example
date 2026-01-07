@@ -1,14 +1,32 @@
 <template>
-  <EuropeMap></EuropeMap>
+  <PropsSelector @selectCriteria="selectCriteria" @selectTonality="selectTonality"></PropsSelector>
+  <EuropeMap :criteria="criteria" :tonality="tonality"></EuropeMap>
 </template>
 
 <script>
-import EuropeMap from './components/EuropeMap.vue'
+import EuropeMap from './components/EuropeMap.vue';
+import PropsSelector from './components/PropsSelector.vue';
 
 export default {
   name: 'App',
   components: {
-    EuropeMap
+    EuropeMap,
+    PropsSelector
+  },
+  data() {
+    return {
+      criteria: 'internetSpeed',
+      tonality: 'blue'
+    }
+  },
+  methods: {
+    selectCriteria(selected) {
+      this.criteria = selected;
+
+    },
+    selectTonality(selected) {
+      this.tonality = selected;
+    }
   }
 }
 </script>
