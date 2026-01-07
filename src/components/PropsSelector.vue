@@ -1,5 +1,5 @@
 <template>
-    <div style="display: inline-flex; gap: 5rem; padding: 2rem;">
+    <div style="display: inline-flex; gap: 1rem; padding: 1rem;">
         <div>
             <label style="margin-inline-end: 0.5rem;"> Select Criteria</label>
             <select style="width: 10rem;" v-model="criteria" @change="$emit('selectCriteria', criteria)">
