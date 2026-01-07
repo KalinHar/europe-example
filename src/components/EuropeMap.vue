@@ -957,13 +957,13 @@
 
     .country:hover {
         fill: #c29cf5;
-        stroke: #1a365d;
+        /* stroke: #1a365d; */
         /* stroke-width: 2; */
     }
 
     .country.selected {
         fill: #c9b1e9;
-        stroke: #1a365d;
+        /* stroke: #1a365d; */
         /* stroke-width: 2; */
     }
 

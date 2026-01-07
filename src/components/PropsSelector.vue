@@ -1,7 +1,7 @@
 <template>
     <div style="display: inline-flex; gap: 1rem; padding: 1rem;">
         <div>
-            <label style="margin-inline-end: 0.5rem;"> Select Criteria</label>
+            <label style="margin-inline-end: 0.5rem;">Criteria</label>
             <select style="width: 10rem;" v-model="criteria" @change="$emit('selectCriteria', criteria)">
                 <option v-for="value in criteries" :key="value" :value="value">
                     {{ value }}
@@ -9,7 +9,7 @@
             </select>
         </div>
         <div>
-            <label style="margin-inline-end: 0.5rem;"> Select Tonality Spectrum</label>
+            <label style="margin-inline-end: 0.5rem;">Tonality</label>
             <select style="width: 5rem;" v-model="tonality" @change="$emit('selectTonality', tonality)">
                 <option v-for="value in tonalities" :key="value" :value="value">
                     {{ value }}
