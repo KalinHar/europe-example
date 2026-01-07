@@ -12,7 +12,7 @@
                 :key="country.code">
                 <path
                     :d="country.path"
-                    :fill="rgbColor(country.props[criteria])"
+                    :fill="getColor(country.code, country.props[criteria])"
                     :class="['country', {selected: selectedCountry && selectedCountry.code === country.code}]"
                     @click.stop="selectCountry(country)"
                     @mouseenter="hoveredCountry = country"
@@ -54,11 +54,20 @@
 </template>
 
 <script>
+    // todo multiselect countries and then show sum or avg in tooltip
     export default {
         props: {
             criteria: {
                 type: String,
                 default: 'internetSpeed'
+            },
+            hoverColor: {
+                type: String,
+                default: 'aqua'
+            },
+            selectedColor: {
+                type: String,
+                default: 'aqua'
             },
             /************************************************************************************************
              *  Add additional criterias, object with keys country code ,values: object of prop and value   *
@@ -881,6 +890,15 @@
                     y: cursor.y
                 };
             },
+            getColor(code, criteriaValue) {
+                if (this.selectedCountry?.code === code) {
+                    return this.selectedColor;
+                }
+                if (this.hoveredCountry?.code === code) {
+                    return this.hoverColor;
+                }
+                return this.rgbColor(criteriaValue);
+            },
             rgbColor(value) {
                 if (value === 0) return 'rgba(0, 0, 0, 0.1)';
 
@@ -955,17 +973,17 @@
         transition: all 0.3s;
     }
 
-    .country:hover {
+    /* .country:hover {
         fill: #c29cf5;
-        /* stroke: #1a365d; */
-        /* stroke-width: 2; */
+        stroke: #1a365d;
+        stroke-width: 2;
     }
 
     .country.selected {
         fill: #c9b1e9;
-        /* stroke: #1a365d; */
-        /* stroke-width: 2; */
-    }
+        stroke: #1a365d;
+        stroke-width: 2;
+    } */
 
     .country-label {
         margin-top: 0;

@@ -16,6 +16,22 @@
                 </option>
             </select>
         </div>
+        <div>
+            <label style="margin-inline-end: 0.5rem;">Hover</label>
+            <select style="width: 5rem;" v-model="hoverColor" @change="$emit('selectHover', hoverColor)">
+                <option v-for="value in fillColors" :key="value" :value="value">
+                    {{ value }}
+                </option>
+            </select>
+        </div>
+        <div>
+            <label style="margin-inline-end: 0.5rem;">Selected</label>
+            <select style="width: 5rem;" v-model="selectColor" @change="$emit('selectSelect', selectColor)">
+                <option v-for="value in fillColors" :key="value" :value="value">
+                    {{ value }}
+                </option>
+            </select>
+        </div>
     </div>
     
 </template>
@@ -36,7 +52,10 @@ export default {
             criteries: ['internetSpeed', 'population', 'area', 'averagePopulationAge'],
             criteria: 'internetSpeed',
             tonalities: ['blue', 'red', 'green', 'orange', 'dark', 'light'],
-            tonality: 'blue'
+            tonality: 'blue',
+            fillColors: ['aqua', 'silver', 'grey', 'violet', 'teal', 'olive', 'pink', 'tan', 'magenta', 'black', 'white'],
+            selectColor: 'aqua',
+            hoverColor: 'aqua'
         };
     },
     watch: {
