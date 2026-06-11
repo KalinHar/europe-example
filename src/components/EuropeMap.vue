@@ -889,6 +889,11 @@
                     x: cursor.x,
                     y: cursor.y
                 };
+                if (this.hoveredCountry.code === 'SJ') {
+                    this.tooltip.offsetY = 30;
+                } else {
+                    this.tooltip.offsetY = -60;
+                }
             },
             getColor(code, criteriaValue) {
                 if (this.selectedCountry?.code === code) {
